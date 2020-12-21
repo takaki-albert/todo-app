@@ -52,6 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
     })
 
     this.tasks = this.service.list();
+    this.ref.detectChanges();
   }
 
   ngOnDestroy() {
@@ -60,9 +61,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onSubmit(newTask) {
     console.log(newTask);
-	  this.service.register(newTask.name);
+	  this.service.register(newTask.name, this.user);
 	  this.tasks = this.service.list();
 	  this.taskForm.reset();
+    this.ref.detectChanges();
   }
 
   onCompleteTask(index) {

@@ -24,9 +24,9 @@
     <h3>タスクリスト</h3>
 
     <mat-list class="task-list">
-        <mat-list-item class="task-item" *ngFor="let task of tasks; index as i">
-            {{task}}
-            <button mat-raised-button color="accent" (click)="onCompleteTask(i)">Done</button>
+        <mat-list-item class="task-item" *ngFor="let task of tasks | async">
+            {{task.name}}
+            <button mat-raised-button color="accent" (click)="onCompleteTask(task.id)">Done</button>
         </mat-list-item>
     </mat-list>
 
