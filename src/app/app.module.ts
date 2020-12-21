@@ -10,6 +10,8 @@ import {MatListModule} from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,10 +21,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-	MatButtonModule,
-	MatListModule,
-	MatFormFieldModule,
-	MatInputModule
+    MatButtonModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AmplifyUIAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
