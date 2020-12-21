@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/tasks",
+            "lambdaFunction": "task",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/tasks"
+        }
+    ],
+    "resourceName": "api75881524",
+    "apiName": "api75881524",
+    "functionArns": [
+        {
+            "lambdaFunction": "task"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-todo-dev-01118-authRole",
+        "unAuthRoleName": "amplify-todo-dev-01118-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "task",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
