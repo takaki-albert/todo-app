@@ -41,13 +41,13 @@
     },
     "Resources": {
         
-        "PolicyAPIGWapi75881524auth": {
+        "PolicyAPIGWtaskauth": {
             "DependsOn": [
-              "api75881524"
+              "task"
             ],
             "Type": "AWS::IAM::Policy",
             "Properties": {
-              "PolicyName": "PolicyAPIGWapi75881524auth",
+              "PolicyName": "PolicyAPIGWtaskauth",
               "Roles": [
                 {"Ref": "authRoleName"}
               ],
@@ -77,7 +77,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -108,7 +108,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -143,7 +143,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -174,7 +174,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -209,7 +209,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -240,7 +240,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -275,7 +275,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -306,7 +306,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -341,7 +341,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -372,7 +372,7 @@
                             },
                             ":",
                             {
-                              "Ref": "api75881524"
+                              "Ref": "task"
                             },
                             "/",
                             {
@@ -405,16 +405,16 @@
         
         
         
-      "api75881524": {
+      "task": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "api75881524",
+          "Name": "task",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "api75881524"
+              "title": "task"
             },
             "host": {
                 "Fn::Join": [
@@ -704,7 +704,7 @@
                   
         
         
-        "functiontaskPermissionapi75881524": {
+        "functiontaskPermissiontask": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
@@ -728,7 +728,7 @@
                             },
                             ":",
                             {
-                                "Ref": "api75881524"
+                                "Ref": "task"
                             },
                             "/*/*/*"
                         ]
@@ -739,7 +739,7 @@
         
         
         
-      "DeploymentAPIGWapi75881524": {
+      "DeploymentAPIGWtask": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -753,7 +753,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "api75881524"
+            "Ref": "task"
           }
         }
       }
@@ -761,15 +761,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "api75881524"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "task"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "api75881524"
+          "Value": "task"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "api75881524"}
+          "Value": {"Ref": "task"}
         }
     }
   }

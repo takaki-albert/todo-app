@@ -1,7 +1,7 @@
 {
     "tableName": "task",
-    "partitionKeyName": "name",
+    "partitionKeyName": "owner",
     "partitionKeyType": "S",
-    "sortKeyName": "id",
+    "sortKeyName": "priority",
     "sortKeyType": "N"
 }

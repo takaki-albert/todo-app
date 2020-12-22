@@ -5,29 +5,29 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root'
 })
 export class TaskService {
-  apiName = 'api75881524';
+  apiName = 'task';
   path = '/tasks/'
 
-	async list() {
-      let myInit = {
-          headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`},
-          response: true,
-      }
+  async list(user) {
+    let myInit = {
+        headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`},
+        response: true,
+    }
 
-      API.get(this.apiName, this.path, myInit).then(response => {
-          console.log(response)
-          return response;
-      }).catch(error => {
-          console.log(error.response)
-          return error;
-      });
-	}
+    API.get(this.apiName, `${this.path}/${user.username}`, myInit).then(response => {
+        console.log(response)
+        return response;
+    }).catch(error => {
+        console.log(error.response)
+        return error;
+    });
+  }
 
-  async register(newTaskName, user) {
+  async register(priority, newTaskName, user) {
     let myInit = {
       headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`},
       response: true,
-      body: {id: newTaskName + user.username, name: newTaskName, owner: user.username}
+      body: {priority: priority, name: newTaskName, owner: user.username}
     }
 
     API.post(this.apiName, this.path, myInit).then(response => {
@@ -37,20 +37,20 @@ export class TaskService {
       console.log(error.response)
       return error;
     });
-	}
+  }
 
-	async delete(id) {
-      let myInit = {
-          headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`},
-          response: true
-      }
+  async delete(user, id) {
+    let myInit = {
+        headers: { Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`},
+        response: true
+    }
 
-      API.del(this.apiName, `${this.path}${id}`, myInit).then(response => {
-          console.log(response)
-          return response;
-      }).catch(error => {
-          console.log(error.response)
-          return error;
-      });
-	}
+    API.del(this.apiName, `${this.path}/object/${user.username}/${id}`, myInit).then(response => {
+        console.log(response)
+        return response;
+    }).catch(error => {
+        console.log(error.response)
+        return error;
+    });
+  }
 }

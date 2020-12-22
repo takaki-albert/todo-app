@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private ref: ChangeDetectorRef
   ) {
-	  this.taskForm = this.formBuilder.group({name: ''});
+    this.taskForm = this.formBuilder.group({name: ''});
   }
 
   ngOnInit() {
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.ref.detectChanges();
     })
 
-    this.tasks = this.service.list();
+    this.tasks = this.service.list(this.user);
     this.ref.detectChanges();
   }
 
@@ -61,14 +61,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onSubmit(newTask) {
     console.log(newTask);
-	  this.service.register(newTask.name, this.user);
-	  this.tasks = this.service.list();
-	  this.taskForm.reset();
+    this.service.register(Math.floor(Math.random() * Math.floor(10000)), newTask.name, this.user);
+    this.tasks = this.service.list(this.user);
+    this.taskForm.reset();
     this.ref.detectChanges();
   }
 
   onCompleteTask(index) {
-	  this.service.delete(index);
-	  this.tasks = this.service.list();
+    this.service.delete(this.user, index);
+    this.tasks = this.service.list(this.user);
   }
 }

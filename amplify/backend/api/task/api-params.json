@@ -16,8 +16,8 @@
             "policyResourceName": "/tasks"
         }
     ],
-    "resourceName": "api75881524",
-    "apiName": "api75881524",
+    "resourceName": "task",
+    "apiName": "task",
     "functionArns": [
         {
             "lambdaFunction": "task"

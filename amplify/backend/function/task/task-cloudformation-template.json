@@ -77,7 +77,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-todo-dev-01118-deployment",
-          "S3Key": "amplify-builds/task-53573268343646314274-build.zip"
+          "S3Key": "amplify-builds/task-686e50744636347a544e-build.zip"
         }
       }
     },
@@ -87,12 +87,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "todoLambdaRole5cf310e2",
+            "todoLambdaRole148c38aa",
             {
               "Fn::Join": [
                 "",
                 [
-                  "todoLambdaRole5cf310e2",
+                  "todoLambdaRole148c38aa",
                   "-",
                   {
                     "Ref": "env"

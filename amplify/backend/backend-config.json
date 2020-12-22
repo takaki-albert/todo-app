@@ -41,7 +41,7 @@
     }
   },
   "api": {
-    "api75881524": {
+    "task": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [

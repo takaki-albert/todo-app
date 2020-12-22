@@ -22,10 +22,10 @@ if(process.env.ENV && process.env.ENV !== "NONE") {
   tableName = tableName + '-' + process.env.ENV;
 }
 
-const userIdPresent = true;
-const partitionKeyName = "name";
+const userIdPresent = false; // TODO: update in case is required to use that definition
+const partitionKeyName = "owner";
 const partitionKeyType = "S";
-const sortKeyName = "id";
+const sortKeyName = "priority";
 const sortKeyType = "N";
 const hasSortKey = sortKeyName !== "";
 const path = "/tasks";

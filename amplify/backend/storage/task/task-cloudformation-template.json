@@ -40,25 +40,25 @@
                 "AttributeDefinitions": [
                   
                   {
-                      "AttributeName": "id",
-                      "AttributeType": "N"
+                      "AttributeName": "owner",
+                      "AttributeType": "S"
                   }  , 
                   
                   {
-                      "AttributeName": "name",
-                      "AttributeType": "S"
+                      "AttributeName": "priority",
+                      "AttributeType": "N"
                   } 
                   
                 ],
                 "KeySchema": [
                   
                   {
-                    "AttributeName": "name",
+                    "AttributeName": "owner",
                     "KeyType": "HASH"
                   }  , 
                   
                   {
-                    "AttributeName": "id",
+                    "AttributeName": "priority",
                     "KeyType": "RANGE"
                   } 
                   
